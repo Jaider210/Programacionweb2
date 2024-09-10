@@ -3,7 +3,7 @@
 //total de productos, y el nombre del producto más caro. Utiliza el spread operator, la
 //función reduce, map y sort para calcular los valores necesarios.
 
-const productos = [
+let productos = [
     { id_product: 1, product_name: 'Camiseta', product_price: 50000, product_quantity: 89 },
     { id_product: 2, product_name: 'Pantalón', product_price: 90000, product_quantity: 44 },
     { id_product: 3, product_name: 'Chaqueta', product_price: 160000, product_quantity: 23 },
