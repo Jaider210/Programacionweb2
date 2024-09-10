@@ -3,20 +3,22 @@
 //y para cada usuario se agregue una nueva propiedad "age_in_days" que
 //represente la edad del usuario en días. Utiliza el spread operator, la función map y filter.
 
-function MayoresEdad(usuarios) {
-    return usuarios
-        .filter(usuario => usuario.edad >= 18)
-        .map(usuario => ({
-            ...usuario,
-            age_in_days: usuario.edad * 365
+
+const users  = [
+    { name: 'Carlos', age: 20 },
+    { name: 'Juana', age: 17 },
+    { name: 'Oliver', age: 25 },
+    { name: 'Oliver', age: 30 },
+];
+
+
+function MayoresEdad(users) {
+    return users
+        .filter(users => users.age >= 18)
+        .map(users => ({
+            ...users,
+            age_in_days: users.age * 365
         }));
 }
 
-const usuarios = [
-    { nombre: 'Jefferson', edad: 17 },
-    { nombre: 'Camilo', edad: 30 },
-    { nombre: 'Miguel', edad: 27 },
-    { nombre: 'Jhaider', edad: 33 }
-];
-
-console.log(MayoresEdad(usuarios));
+console.log(MayoresEdad(users));

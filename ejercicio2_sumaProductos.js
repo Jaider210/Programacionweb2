@@ -4,23 +4,26 @@
 //función reduce, map y sort para calcular los valores necesarios.
 
 const productos = [
-    { nombre: 'Leche', precio: 50000, cantidad: 3 },
-    { nombre: 'Queso', precio: 20000, cantidad: 5 },
-    { nombre: 'Arroz', precio: 15000, cantidad: 2 }
+    { id_product: 1, product_name: 'Camiseta', product_price: 50000, product_quantity: 89 },
+    { id_product: 2, product_name: 'Pantalón', product_price: 90000, product_quantity: 44 },
+    { id_product: 3, product_name: 'Chaqueta', product_price: 160000, product_quantity: 23 },
+    { id_product: 4, product_name: 'Correa', product_price: 80000, product_quantity: 104 }
 ];
 
 function calcularProductos(productos) {
-    // Suma total de los precios, considerando la cantidad de cada producto
-    const totalPrecio = productos.reduce((acum, { precio, cantidad }) => acum + (precio * cantidad), 0);
 
-    // Cantidad total de productos
-    const cantidadTotal = productos.reduce((acum, { cantidad }) => acum + cantidad, 0);
+    const totalPrecio = productos.reduce((acum, { product_price, product_quantity }) => acum + (product_price * product_quantity), 0);
 
-    // Encontrar el producto más caro
+    const cantidadTotal = productos.reduce((acum, { product_quantity }) => acum + product_quantity, 0);
+
     const productoMasCaro = productos.reduce((masCaro, producto) => 
-        producto.precio > masCaro.precio ? producto : masCaro, productos[0]).nombre;
+        producto.product_price > masCaro.product_price ? producto : masCaro, productos[0]);
 
-    return { totalPrecio, cantidadTotal, productoMasCaro };
+    return { totalPrecio, 
+             cantidadTotal, 
+             productoMasCaro: productoMasCaro.product_name,
+             product_price: productoMasCaro.product_price,
+             product_quantity: productoMasCaro.product_quantity
+            };
 }
-
 console.log(calcularProductos(productos));

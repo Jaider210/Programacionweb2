@@ -3,16 +3,17 @@
 // Utiliza la función reduce y el spread operator para obtener los precios de cada objeto y sumarlos   
 
 const productos = [
-    { nombre: 'Leche', precio: 50000, cantidad: 3 },
-    { nombre: 'Queso', precio: 20000, cantidad: 5 },
-    { nombre: 'Arroz', precio: 15000, cantidad: 2 }
+    { id_product: 1, product_name: 'Camiseta', product_price: 50000, product_quantity: 89 },
+    { id_product: 2, product_name: 'Pantalón', product_price: 90000, product_quantity: 44 },
+    { id_product: 3, product_name: 'Chaqueta', product_price: 160000, product_quantity: 23 },
+    { id_product: 4, product_name: 'Correa', product_price: 80000, product_quantity: 104 }
 ];
 
 function SumaYStock(productos) {
     const resultado = productos.map(producto => {
-        const { nombre, precio, cantidad } = producto;
-        const precioTotal = precio * cantidad;
-        return { nombre, precio, cantidad, precioTotal };
+        const { id_product, product_name, product_price, product_quantity } = producto;
+        const precioTotal = product_price * product_quantity;
+        return { id_product, product_name, product_price, product_quantity, precioTotal };
     });
 
     const totalStock = resultado.reduce((acumulador, producto) => acumulador + producto.precioTotal, 0);
